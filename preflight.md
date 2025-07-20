@@ -1,0 +1,3 @@
+- [ ] Have a fresh browser tab open and logged into Azure
+- [ ] Ensure Pulumi CLI is auth'd
+- [ ] Ensure AZ CLI is auth'd

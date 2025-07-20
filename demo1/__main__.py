@@ -61,5 +61,31 @@ blob_url = pulumi.Output.concat(
     "https://", account.name, ".blob.core.windows.net/", container.name, "/", blob.name
 )
 
-pulumi.export("primary_storage_key", primary_key)
+# Link to public raw image
 pulumi.export("hello_there_url", blob_url)
+
+# Convenient Link to Resource Group for Demo
+resource_group_url = pulumi.Output.concat(
+    "https://portal.azure.com/#resource", resource_group.id
+)
+pulumi.export("Resource Group URL", resource_group_url)
+
+"""
+### Example of bad export
+
+This doesn't work b/c resource_group.id doesn't exist before "pulumi up"
+ 
+Pulumi calls these values "Outputs" - values Output from a resource AFTER it's provisioned
+
+    pulumi.export("Resource Group URL", f"https://portal.azure.com/#resource{resource_group.id}")
+
+This command will result in the following error:
+
+    https://portal.azure.com/#Calling __str__ on an Output[T] is not supported.
+
+    To get the value of an Output[T] as an Output[str] consider:
+        1. o.apply(lambda v: f"prefix{v}suffix")
+    
+    See https://www.pulumi.com/docs/concepts/inputs-outputs for more details.
+    This function may throw in a future version of Pulumi.
+"""
