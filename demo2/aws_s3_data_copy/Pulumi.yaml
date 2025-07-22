@@ -1,0 +1,11 @@
+name: demo2_aws_s3_data_copy
+runtime:
+  name: python
+  options:
+    toolchain: pip
+    virtualenv: venv
+description: 'Create a Pulumi Python project that deploys an AWS S3 bucket. Use pulumi.StackReference to read the Azure Blob Storage URL prefix from another Pulumi stack. Prepare this stack to copy data from Azure Blob Storage to S3, either with a Lambda function '
+config:
+  pulumi:tags:
+    value:
+      pulumi:template: https://www.pulumi.com/ai/api/project/26c4f6a6-b8e1-4008-b817-b7a5e2b62c9f.zip

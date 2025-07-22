@@ -1,0 +1,11 @@
+name: demo2_azure_blob
+runtime:
+  name: python
+  options:
+    toolchain: pip
+    virtualenv: venv
+description: Create a Pulumi Python project that deploys an Azure Resource Group, a Storage Account, and a public Blob Container. Export the storage account name, container name, and the public Blob URL prefix as stack outputs.
+config:
+  pulumi:tags:
+    value:
+      pulumi:template: https://www.pulumi.com/ai/api/project/d0788a41-69da-4ed8-8166-1e87cf25a984.zip
